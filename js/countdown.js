@@ -1,5 +1,5 @@
-// Fecha objetivo: 21 de marzo de 2026, 17:00 (5:00 p.m.)
-const weddingDate = new Date("2026-03-21T17:00:00");
+// Fecha objetivo: 21 de marzo de 2026, 15:30 (3:30 p.m. hora de la ceremonia)
+const weddingDate = new Date("2026-03-21T15:30:00");
 
 // Elementos del DOM
 const daysEl = document.getElementById("days");
@@ -8,6 +8,8 @@ const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 const messageEl = document.getElementById("countdown-message");
 
+let intervalId = null;
+
 function updateCountdown() {
   const now = new Date();
   const diff = weddingDate.getTime() - now.getTime();
@@ -15,12 +17,13 @@ function updateCountdown() {
   if (diff <= 0) {
     // Si ya es el gran día o pasó la hora
     daysEl.textContent = "0";
-    hoursEl.textContent = "0";
-    minutesEl.textContent = "0";
-    secondsEl.textContent = "0";
+    hoursEl.textContent = "00";
+    minutesEl.textContent = "00";
+    secondsEl.textContent = "00";
 
-    messageEl.textContent = "¡Hoy es el gran día! Gracias por ser parte de este momento tan especial.";
-    clearInterval(intervalId);
+    messageEl.textContent =
+      "¡Hoy es el gran día! Gracias por acompañarnos en este momento tan especial.";
+    if (intervalId) clearInterval(intervalId);
     return;
   }
 
@@ -36,9 +39,9 @@ function updateCountdown() {
   minutesEl.textContent = String(minutes).padStart(2, "0");
   secondsEl.textContent = String(seconds).padStart(2, "0");
 
-  // Mensaje dinámico opcional
+  // Mensaje dinámico
   if (days <= 7 && days > 1) {
-    messageEl.textContent = "¡Faltan solo " + days + " días para la boda!";
+    messageEl.textContent = "¡Faltan solo " + days + " días para nuestra boda!";
   } else if (days === 1) {
     messageEl.textContent = "¡Mañana es el gran día!";
   } else if (days === 0) {
@@ -51,4 +54,4 @@ function updateCountdown() {
 // Actualizamos inmediatamente al cargar
 updateCountdown();
 // Y luego cada segundo
-const intervalId = setInterval(updateCountdown, 1000);
+intervalId = setInterval(updateCountdown, 1000);

@@ -1,4 +1,4 @@
-/* Tipografías básicas */
+/* Tipografías y variables */
 :root {
   --font-title: "Playfair Display", serif;
   --font-body: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -34,7 +34,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 16px;
   background: radial-gradient(circle at top, #f9f4ee 0, #e9ded1 45%, #d6c7b6 100%);
 }
 
@@ -47,19 +47,21 @@ body {
   box-shadow: var(--shadow-soft);
   overflow: hidden;
   border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
 }
 
 /* HEADER */
 .card-header {
   text-align: center;
-  padding: 32px 24px 24px;
+  padding: 24px 16px 18px;
   position: relative;
 }
 
 .header-image-wrapper {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 16px;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 12px;
   border-radius: 50%;
   overflow: hidden;
   border: 4px solid var(--color-card-bg);
@@ -75,31 +77,31 @@ body {
 .small-text {
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 11px;
+  font-size: 10px;
   color: var(--color-text-soft);
-  margin: 8px 0;
+  margin: 6px 0;
 }
 
 .names {
   font-family: var(--font-title);
-  font-size: 32px;
+  font-size: 26px;
   margin: 4px 0;
   color: var(--color-accent);
 }
 
 .wedding-date {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--color-text-soft);
 }
 
 /* Cuerpo de la tarjeta */
 .card-body {
-  padding: 24px 24px 32px;
+  padding: 20px 16px 24px;
 }
 
 /* Secciones */
 .section {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .section:last-of-type {
@@ -108,14 +110,14 @@ body {
 
 .section h2 {
   font-family: var(--font-title);
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 20px;
+  margin-bottom: 10px;
   color: var(--color-accent);
 }
 
 .section-intro {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.7;
 }
 
@@ -123,31 +125,39 @@ body {
 .section-countdown {
   text-align: center;
   background: linear-gradient(to bottom, #fffaf3, #fff);
-  padding: 24px;
+  padding: 18px 12px;
   border-radius: 18px;
   border: 1px solid var(--color-border);
 }
 
 .countdown-subtitle {
-  margin: 0 0 16px;
-  font-size: 13px;
+  margin: 0 0 14px;
+  font-size: 12px;
   color: var(--color-text-soft);
 }
 
+/* GRID súper responsivo */
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(70px, 1fr));
+  grid-template-columns: repeat(2, minmax(90px, 1fr));
   gap: 10px;
   justify-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+}
+
+/* Desde pantallas medianas para arriba, 4 columnas */
+@media (min-width: 600px) {
+  .countdown-grid {
+    grid-template-columns: repeat(4, minmax(80px, 1fr));
+  }
 }
 
 .countdown-item {
-  padding: 12px 8px;
+  padding: 10px 8px;
   border-radius: 12px;
   border: 1px solid var(--color-accent-soft);
   background: #ffffff;
-  min-width: 70px;
+  min-width: 80px;
 }
 
 .count-value {
@@ -165,7 +175,7 @@ body {
 }
 
 .countdown-message {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-text-soft);
   margin: 0;
 }
@@ -173,36 +183,36 @@ body {
 /* DETALLES DEL EVENTO */
 .section-details {
   border-top: 1px solid #f0e4d8;
-  padding-top: 20px;
+  padding-top: 16px;
 }
 
 .detail-block {
-  margin-bottom: 16px;
-  padding: 12px 14px;
+  margin-bottom: 14px;
+  padding: 10px 12px;
   border-radius: 12px;
   background: #faf6f1;
 }
 
 .detail-block h3 {
   margin: 0 0 6px;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-accent);
 }
 
 .detail-block p {
   margin: 2px 0;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* UBICACIÓN */
 .section-location p {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.6;
 }
 
 .map-placeholder {
   margin-top: 12px;
-  padding: 30px 16px;
+  padding: 26px 12px;
   text-align: center;
   border-radius: 16px;
   background: repeating-linear-gradient(
@@ -212,28 +222,35 @@ body {
     #f3e6d8 10px,
     #f3e6d8 20px
   );
-  font-size: 13px;
+  font-size: 12px;
   color: var(--color-text-soft);
 }
 
 /* RSVP */
 .section-rsvp p {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .rsvp-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 16px;
-  margin-top: 12px;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+/* En pantallas anchas, los bloques uno al lado del otro */
+@media (min-width: 640px) {
+  .rsvp-options {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
 }
 
 .rsvp-item {
-  padding: 12px 14px;
+  padding: 10px 12px;
   border-radius: 12px;
   border: 1px dashed var(--color-accent-soft);
   background: #fffdf9;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /* Botones */
@@ -247,6 +264,8 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
   transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -275,9 +294,9 @@ body {
 /* FOOTER */
 .card-footer {
   border-top: 1px solid var(--color-border);
-  padding: 16px 24px 20px;
+  padding: 12px 16px 16px;
   text-align: center;
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-text-soft);
   background: #fdf8f2;
 }
@@ -289,29 +308,56 @@ body {
   color: var(--color-accent);
 }
 
-/* RESPONSIVE */
-@media (min-width: 768px) {
-  .card-header {
-    padding: 36px 32px 24px;
-  }
-
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 360px) {
   .names {
-    font-size: 40px;
+    font-size: 22px;
   }
 
   .card-body {
-    padding: 32px 40px 36px;
+    padding: 16px 12px 20px;
   }
 
   .section h2 {
-    font-size: 24px;
+    font-size: 18px;
+  }
+}
+
+/* Ajustes para pantallas medianas y grandes */
+@media (min-width: 768px) {
+  .card-header {
+    padding: 32px 32px 24px;
   }
 
-  .countdown-grid {
-    gap: 14px;
+  .header-image-wrapper {
+    width: 140px;
+    height: 140px;
+    margin-bottom: 16px;
   }
 
-  .count-value {
-    font-size: 26px;
+  .names {
+    font-size: 36px;
+  }
+
+  .wedding-date {
+    font-size: 14px;
+  }
+
+  .card-body {
+    padding: 28px 40px 32px;
+  }
+
+  .section h2 {
+    font-size: 22px;
+  }
+
+  .section-intro {
+    font-size: 15px;
+  }
+
+  .detail-block p,
+  .section-location p,
+  .section-rsvp p {
+    font-size: 14px;
   }
 }
