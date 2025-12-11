@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Invitación de Matrimonio - Lucía & Andrés</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Fuente opcional de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-background">
+    <div class="card">
+
+      <!-- HEADER / PORTADA -->
+      <header class="card-header">
+        <div class="header-image-wrapper">
+          <img src="img/imagen.png" alt="Foto de los novios" class="header-image" />
+        </div>
+        <p class="small-text">Nos casamos</p>
+        <h1 class="names">Lucía &amp; Andrés</h1>
+        <p class="wedding-date">Sábado, 21 de marzo de 2026</p>
+      </header>
+
+      <main class="card-body">
+        <!-- INTRO -->
+        <section id="intro" class="section section-intro">
+          <p>
+            Con la bendición de Dios y nuestras familias, tenemos el honor de invitarte
+            a celebrar con nosotros el día en que unimos nuestras vidas en matrimonio.
+          </p>
+        </section>
+
+        <!-- COUNTDOWN -->
+        <section id="countdown" class="section section-countdown">
+          <h2>Falta muy poco…</h2>
+          <p class="countdown-subtitle">Cuenta regresiva para el gran día</p>
+
+          <div class="countdown-grid">
+            <div class="countdown-item">
+              <span id="days" class="count-value">0</span>
+              <span class="count-label">Días</span>
+            </div>
+            <div class="countdown-item">
+              <span id="hours" class="count-value">0</span>
+              <span class="count-label">Horas</span>
+            </div>
+            <div class="countdown-item">
+              <span id="minutes" class="count-value">0</span>
+              <span class="count-label">Minutos</span>
+            </div>
+            <div class="countdown-item">
+              <span id="seconds" class="count-value">0</span>
+              <span class="count-label">Segundos</span>
+            </div>
+          </div>
+
+          <p id="countdown-message" class="countdown-message"></p>
+        </section>
+
+        <!-- DETALLES DEL EVENTO -->
+        <section id="details" class="section section-details">
+          <h2>Detalles del evento</h2>
+
+          <div class="detail-block">
+            <h3>Ceremonia religiosa</h3>
+            <p><strong>Hora:</strong> 5:00 p.m.</p>
+            <p><strong>Lugar:</strong> Parroquia San Miguel Arcángel</p>
+            <p><strong>Dirección:</strong> Av. Principal 123, Ciudad Jardín</p>
+          </div>
+
+          <div class="detail-block">
+            <h3>Recepción</h3>
+            <p><strong>Hora:</strong> 7:00 p.m.</p>
+            <p><strong>Lugar:</strong> Hacienda Los Olivos</p>
+            <p><strong>Dirección:</strong> Camino Real km 5, Ciudad Jardín</p>
+          </div>
+
+          <div class="detail-block">
+            <h3>Código de vestimenta</h3>
+            <p>Elegante / Formal. Agradecemos evitar colores completamente blancos.</p>
+          </div>
+        </section>
+
+        <!-- UBICACIÓN -->
+        <section id="location" class="section section-location">
+          <h2>Ubicación</h2>
+          <p>
+            Te compartimos la ubicación referencial de la recepción.  
+            Haz clic en el botón para abrir el mapa:
+          </p>
+
+          <a
+            href="https://www.google.com/maps"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+          >
+            Ver ubicación en Google Maps
+          </a>
+
+          <!-- Aquí podrías incrustar un iframe de Google Maps si quisieras 
+          <div class="map-placeholder">
+            Mapa de la ubicación
+          </div>
+          -->
+        </section>
+
+        <!-- RSVP / CONFIRMACIÓN -->
+        <section id="rsvp" class="section section-rsvp">
+          <h2>Confirmación de asistencia</h2>
+          <p>
+            Tu presencia es muy importante para nosotros.  
+            Te pedimos confirmar tu asistencia antes del <strong>1 de marzo de 2026</strong>.
+          </p>
+
+          <div class="rsvp-options">
+            <div class="rsvp-item">
+              <p><strong>Teléfono / WhatsApp:</strong></p>
+              <p>Lucía: +51 987 654 321</p>
+              <p>Andrés: +51 912 345 678</p>
+            </div>
+
+            <div class="rsvp-item">
+              <p><strong>Correo electrónico:</strong></p>
+              <a
+                href="mailto:confirmacion@boda-luyandres.com?subject=Confirmación%20de%20asistencia"
+                class="btn btn-primary"
+              >
+                Confirmar por correo
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="card-footer">
+        <p>
+          “El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección.”
+        </p>
+        <p class="initials">L &amp; A</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/countdown.js"></script>
+</body>
+</html>
