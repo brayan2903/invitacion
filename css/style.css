@@ -1,25 +1,28 @@
 /* =======================================================
-      TIPOGRAFÍAS – COLORES – VARIABLES DE DISEÑO
+   🎨 VARIABLES · TIPOGRAFÍAS · COLORES
 ======================================================= */
 :root {
   --font-title: "Playfair Display", serif;
   --font-body: "Montserrat", system-ui, sans-serif;
 
-  /* Paleta romántica pastel celeste + dorado */
-  --color-bg: #e8f5ff;            /* Celeste pastel */
-  --color-bg-soft: #f4faff;       
+  /* Celeste elegante */
+  --color-bg: #eaf6ff;
+  --color-bg-soft: #f6fbff;
   --color-card-bg: #ffffff;
-  --color-accent: #d4af37;        /* Dorado elegante */
-  --color-accent-light: #f4e8c3;
-  --color-text-main: #2f3b52;     /* Azul grisáceo suave */
-  --color-text-soft: #687792;
-  --color-border: #e1e9f0;
 
-  /* Sombras */
-  --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.09);
-  --shadow-gold: 0 0 14px rgba(212, 175, 55, 0.28);
+  --color-accent: #6fb7d6;
+  --color-accent-light: #d6eef8;
+
+  --color-text-main: #2f3b52;
+  --color-text-soft: #6b7f99;
+  --color-border: #e1edf6;
+
+  --shadow-soft: 0 18px 40px rgba(0,0,0,0.08);
 }
 
+/* =======================================================
+   RESET
+======================================================= */
 *,
 *::before,
 *::after {
@@ -31,73 +34,73 @@ body {
   font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text-main);
+  overflow-x: hidden;
 }
 
 /* =======================================================
-      FONDO GENERAL SUAVE CON EFECTO FLORAL
+   🌤 FONDO GENERAL
 ======================================================= */
 .page-background {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding: 26px;
-  background: radial-gradient(circle at top, #ffffff, #e8f5ff 55%);
+  padding: 32px 16px;
+  background: radial-gradient(circle at top, #ffffff, var(--color-bg) 65%);
   position: relative;
-}
-
-/* FLORES DECORATIVAS DELICADAS */
-.page-background::before,
-.page-background::after {
-  content: "";
-  position: absolute;
-  width: 220px;
-  height: 220px;
-  opacity: 0.14;
-  background: url('../img/floral-gold.png') no-repeat center / contain;
-  pointer-events: none;
-}
-
-.page-background::before {
-  top: 0;
-  left: 0;
-}
-
-.page-background::after {
-  bottom: 0;
-  right: 0;
+  overflow: hidden;
 }
 
 /* =======================================================
-      TARJETA PRINCIPAL
+   🌸 PÉTALOS SUAVES
+======================================================= */
+.petal {
+  position: fixed;
+  top: -10%;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(circle at 30% 30%, #ffffff, #b7def2);
+  border-radius: 60% 40% 60% 40%;
+  opacity: 0.7;
+  pointer-events: none;
+  animation: petalFall linear forwards;
+}
+
+@keyframes petalFall {
+  to {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* =======================================================
+   🎴 TARJETA PRINCIPAL
 ======================================================= */
 .card {
-  max-width: 960px;
+  max-width: 980px;
   width: 100%;
   background: var(--color-card-bg);
-  border-radius: 26px;
+  border-radius: 28px;
   overflow: hidden;
-  border: 2px solid var(--color-accent-light);
   box-shadow: var(--shadow-soft);
-  animation: fadeIn 1.2s ease both;
+  animation: cinematicIntro 1.6s ease both;
 }
 
 /* =======================================================
-      HEADER
+   🧑‍❤️‍👩 HEADER
 ======================================================= */
 .card-header {
   text-align: center;
-  padding: 36px 20px 28px;
-  position: relative;
+  padding: 48px 24px 36px;
 }
 
 .header-image-wrapper {
-  width: 150px;
-  height: 150px;
-  margin: 0 auto 16px;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto 20px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid #ffffff;
-  box-shadow: var(--shadow-gold);
+  border: 5px solid #ffffff;
+  box-shadow: 0 0 22px rgba(111,183,214,0.45);
 }
 
 .header-image {
@@ -108,17 +111,16 @@ body {
 
 .small-text {
   font-size: 12px;
-  color: var(--color-text-soft);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  margin-top: 10px;
+  color: var(--color-text-soft);
 }
 
 .names {
   font-family: var(--font-title);
-  font-size: 46px;
+  font-size: 52px;
   color: var(--color-accent);
-  margin: 6px 0 4px;
+  margin: 10px 0 6px;
 }
 
 .wedding-date {
@@ -127,200 +129,314 @@ body {
 }
 
 /* =======================================================
-      CUERPO DE LA TARJETA
+   📦 CUERPO
 ======================================================= */
 .card-body {
-  padding: 32px 26px 40px;
+  padding: 36px 28px 48px;
 }
 
-/* Títulos */
+/* Secciones con animación por scroll */
+.section {
+  margin-bottom: 64px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: 1s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .section h2 {
   font-family: var(--font-title);
-  font-size: 26px;
+  font-size: 28px;
   color: var(--color-accent);
-  margin-bottom: 14px;
-}
-
-/* =======================================================
-      SECCIÓN INTRO
-======================================================= */
-.section-intro {
   text-align: center;
-  font-size: 17px;
-  line-height: 1.7;
-  color: var(--color-text-main);
-}
-
-/* =======================================================
-      COUNTDOWN
-======================================================= */
-.section-countdown {
-  text-align: center;
-  background: linear-gradient(to bottom, var(--color-bg-soft), #ffffff);
-  padding: 28px 22px;
-  border-radius: 20px;
-  border: 1px solid var(--color-border);
-  box-shadow: var(--shadow-soft);
-}
-
-.countdown-subtitle {
-  font-size: 14px;
-  color: var(--color-text-soft);
   margin-bottom: 18px;
 }
 
-/* GRID RESPONSIVO */
+/* =======================================================
+   ✨ DIVISOR
+======================================================= */
+.divider {
+  text-align: center;
+  font-size: 22px;
+  color: var(--color-accent);
+  margin: 48px 0;
+  opacity: 0.6;
+}
+
+/* =======================================================
+   📝 INTRO
+======================================================= */
+.section-intro {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.9;
+}
+
+/* =======================================================
+   ⏳ COUNTDOWN
+======================================================= */
+.section-countdown {
+  background: linear-gradient(to bottom, var(--color-bg-soft), #ffffff);
+  padding: 32px 26px;
+  border-radius: 26px;
+  box-shadow: var(--shadow-soft);
+}
+
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
-  justify-items: center;
 }
 
 .countdown-item {
-  padding: 14px 12px;
-  border-radius: 16px;
-  border: 1px solid var(--color-accent-light);
   background: #ffffff;
-  min-width: 90px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  border-radius: 18px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid var(--color-accent-light);
 }
 
-.count-value {
-  font-size: 28px;
+.countdown-item span {
+  font-size: 30px;
   font-weight: 600;
   color: var(--color-accent);
 }
 
-.count-label {
+.countdown-item small {
+  display: block;
   font-size: 12px;
+  color: var(--color-text-soft);
   text-transform: uppercase;
-  color: var(--color-text-soft);
-}
-
-.countdown-message {
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--color-text-soft);
 }
 
 /* =======================================================
-      DETALLES DEL EVENTO
+   📍 DETALLES
 ======================================================= */
-.section-details {
-  border-top: 1px solid var(--color-border);
-  padding-top: 28px;
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
 }
 
 .detail-block {
-  background: #f9fbff;
-  padding: 16px 20px;
-  border-radius: 18px;
-  margin-bottom: 20px;
-  border-left: 4px solid var(--color-accent);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  background: #f8fcff;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.06);
+  transition: transform 0.4s ease;
+}
+
+.detail-block:hover {
+  transform: translateY(-8px);
 }
 
 .detail-block h3 {
   font-family: var(--font-title);
-  margin: 0 0 6px;
-  font-size: 20px;
   color: var(--color-accent);
 }
 
-.detail-block p {
-  margin: 4px 0;
-  font-size: 15px;
-}
-
 /* =======================================================
-      UBICACIÓN
-======================================================= */
-.section-location p {
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.btn-outline {
-  margin-top: 12px;
-}
-
-/* =======================================================
-      RSVP
-======================================================= */
-.rsvp-options {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.rsvp-item {
-  padding: 16px;
-  border-radius: 16px;
-  background: #ffffff;
-  border: 1px dashed var(--color-accent-light);
-  font-size: 15px;
-  box-shadow: var(--shadow-soft);
-}
-
-/* =======================================================
-      BOTONES
+   🔘 BOTONES
 ======================================================= */
 .btn {
   display: inline-block;
-  padding: 12px 22px;
+  padding: 14px 28px;
   border-radius: 999px;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
-  transition: 0.2s ease;
+  transition: 0.3s ease;
 }
 
 .btn-primary {
   background: var(--color-accent);
   color: #ffffff;
-  box-shadow: 0 6px 14px rgba(212,175,55,0.35);
 }
 
 .btn-primary:hover {
-  background: #c19f2f;
+  transform: scale(1.06);
 }
 
 .btn-outline {
-  background: transparent;
-  color: var(--color-accent);
   border: 2px solid var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn-outline:hover {
   background: var(--color-accent);
-  color: #fff;
+  color: #ffffff;
 }
 
 /* =======================================================
-      FOOTER
+   🎶 BOTÓN MÚSICA
+======================================================= */
+#music-toggle {
+  position: fixed;
+  bottom: 22px;
+  right: 22px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: #ffffff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+  z-index: 999;
+}
+
+#yt-player {
+  display: none;
+}
+
+/* =======================================================
+   🦶 FOOTER
 ======================================================= */
 .card-footer {
-  border-top: 1px solid var(--color-border);
-  padding: 18px 20px;
   text-align: center;
-  background: #f5faff;
+  padding: 20px;
   font-size: 13px;
-  color: var(--color-text-soft);
+  background: #f5fbff;
 }
 
 .initials {
-  margin-top: 6px;
-  font-size: 22px;
   font-family: var(--font-title);
+  font-size: 24px;
   color: var(--color-accent);
 }
 
 /* =======================================================
-      ANIMACIONES
+   🎬 ANIMACIONES
 ======================================================= */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(25px); }
-  to   { opacity: 1; transform: translateY(0); }
+@keyframes cinematicIntro {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =======================================================
+   📱 RESPONSIVE
+======================================================= */
+@media (max-width: 768px) {
+  .names {
+    font-size: 40px;
+  }
+
+  .countdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* =======================================================
+   INTRO PANTALLA INICIAL
+======================================================= */
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #e8f5ff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+#intro-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-40px);
+}
+
+.intro-content {
+  text-align: center;
+  animation: introFade 1.8s ease both;
+}
+
+.intro-small {
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  color: #6b85a6;
+  text-transform: uppercase;
+}
+
+.intro-names {
+  font-family: "Playfair Display", serif;
+  font-size: 54px;
+  color: #d4af37;
+  margin: 12px 0;
+}
+
+.intro-date {
+  font-size: 16px;
+  color: #6b85a6;
+}
+
+.scroll-indicator {
+  margin-top: 38px;
+  font-size: 14px;
+  color: #6b85a6;
+}
+
+.scroll-indicator .arrow {
+  font-size: 26px;
+  animation: bounce 1.6s infinite;
+}
+
+@keyframes introFade {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+/* =======================================================
+   GALERÍA ANIMADA
+======================================================= */
+.section-gallery {
+  text-align: center;
+}
+
+.gallery-slider {
+  overflow: hidden;
+  border-radius: 22px;
+  margin-top: 18px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.12);
+}
+
+.gallery-track {
+  display: flex;
+  width: max-content;
+  animation: slideGallery 24s linear infinite;
+}
+
+.gallery-track img {
+  width: 320px;
+  height: 420px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Animación tipo video */
+@keyframes slideGallery {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .gallery-track img {
+    width: 240px;
+    height: 340px;
+  }
 }
