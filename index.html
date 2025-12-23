@@ -162,15 +162,34 @@
         <!-- RSVP -->
         <section class="section section-rsvp">
           <h2>📩 Confirma tu asistencia</h2>
-          <div class="rsvp-options">
-            <a href="https://wa.me/51963325164" class="btn btn-primary">
-              Confirmar por WhatsApp
-            </a>
-            <a href="mailto:confirmacion@boda-david-deysi.com" class="btn btn-outline">
-              Confirmar por correo
-            </a>
-          </div>
+          <p class="rsvp-text">
+            Nos encantaría contar contigo en este día tan especial 💖
+          </p>
+
+          <form id="rsvp-form" class="rsvp-form">
+            <input
+              type="text"
+              id="guest-name"
+              placeholder="Tu nombre completo"
+              required
+            />
+
+            <select id="attendance" required>
+              <option value="">¿Asistirás?</option>
+              <option value="Sí, asistiré">Sí, asistiré 💍</option>
+              <option value="No podré asistir">No podré asistir 😔</option>
+            </select>
+
+            <button type="submit" class="btn btn-primary">
+              Enviar confirmación
+            </button>
+          </form>
+
+          <p id="rsvp-success" class="rsvp-success">
+            💖 Gracias por confirmar
+          </p>
         </section>
+
 
       </main>
 

@@ -440,3 +440,46 @@ body {
     height: 340px;
   }
 }
+/* =======================================================
+   RSVP PREMIUM
+======================================================= */
+.section-rsvp {
+  text-align: center;
+}
+
+.rsvp-text {
+  color: var(--color-text-soft);
+  margin-bottom: 18px;
+}
+
+.rsvp-form {
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.rsvp-form input,
+.rsvp-form select {
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.rsvp-form input:focus,
+.rsvp-form select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+}
+
+.rsvp-success {
+  display: none;
+  margin-top: 18px;
+  color: var(--color-accent);
+  font-weight: 600;
+  animation: fadeUp 1s ease both;
+}

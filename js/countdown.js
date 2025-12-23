@@ -191,3 +191,34 @@ if (gallery) {
     gallery.style.animationPlayState = "paused";
   });
 }
+/* =======================================================
+   RSVP WHATSAPP
+======================================================= */
+const rsvpForm = document.getElementById("rsvp-form");
+const rsvpSuccess = document.getElementById("rsvp-success");
+
+if (rsvpForm) {
+  rsvpForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("guest-name").value.trim();
+    const attendance = document.getElementById("attendance").value;
+
+    if (!name || !attendance) return;
+
+    const message = `Hola 💍✨
+Soy *${name}*.
+Confirmo: *${attendance}*
+para la boda de David & Deysi 💙`;
+
+    const phone = "51963325164"; // tu WhatsApp
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+    rsvpForm.style.display = "none";
+    rsvpSuccess.style.display = "block";
+
+    setTimeout(() => {
+      window.open(url, "_blank");
+    }, 1200);
+  });
+}
