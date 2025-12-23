@@ -4,30 +4,34 @@
   <meta charset="UTF-8" />
   <title>Invitación de Matrimonio - David & Deysi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Fuente opcional de Google Fonts -->
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <div class="page-background">
-    <div class="card">
 
-      <!-- HEADER / PORTADA -->
+    <div class="card fade-in">
+
+      <!-- HEADER -->
       <header class="card-header">
         <div class="header-image-wrapper">
           <img src="img/imagen.png" alt="Foto de los novios" class="header-image" />
         </div>
-        <p class="small-text">Nos casamos</p>
+
+        <p class="small-text">💍 Nos casamos</p>
         <h1 class="names">David &amp; Deysi</h1>
         <p class="wedding-date">Sábado, 21 de marzo de 2026 · Juliaca, Perú</p>
       </header>
 
       <main class="card-body">
+
         <!-- INTRO -->
-        <section id="intro" class="section section-intro">
+        <section class="section section-intro fade-in">
           <p>
             Con la bendición de Dios y de nuestras familias,  
             tenemos el honor de invitarte a compartir con nosotros el día
@@ -36,7 +40,7 @@
         </section>
 
         <!-- COUNTDOWN -->
-        <section id="countdown" class="section section-countdown">
+        <section id="countdown" class="section section-countdown fade-in">
           <h2>Falta muy poco…</h2>
           <p class="countdown-subtitle">Cuenta regresiva para nuestro gran día</p>
 
@@ -62,92 +66,94 @@
           <p id="countdown-message" class="countdown-message"></p>
         </section>
 
-        <!-- DETALLES DEL EVENTO -->
-        <section id="details" class="section section-details">
+        <!-- EVENT DETAILS -->
+        <section class="section section-details fade-in">
           <h2>Detalles del evento</h2>
 
           <div class="detail-block">
-            <h3>Ceremonia religiosa</h3>
+            <h3>⛪ Ceremonia religiosa</h3>
             <p><strong>Fecha:</strong> Sábado, 21 de marzo de 2026</p>
-            <p><strong>Hora:</strong> 3:30 p.m.</p>
-            <p><strong>Lugar:</strong> Parroquia San Pedro</p>
-            <p><strong>Dirección:</strong> Jr. Lima 123, Juliaca, Perú</p>
+            <p><strong>Hora:</strong> 9:00 a.m.</p>
+            <p><strong>Lugar:</strong> Tabernáculo de Juliaca</p>
+            <p><strong>Dirección:</strong> Pasaje Napo s/n, Juliaca, Puno, Perú</p>
           </div>
 
           <div class="detail-block">
-            <h3>Recepción</h3>
-            <p><strong>Hora:</strong> 6:00 p.m.</p>
-            <p><strong>Lugar:</strong> Salón de Eventos Los Andes</p>
-            <p><strong>Dirección:</strong> Av. El Maestro 456, Juliaca, Perú</p>
+            <h3>📜 Ceremonia civil</h3>
+            <p><strong>Hora:</strong> 11:30 a.m.</p>
+            <p><strong>Lugar:</strong> Municipalidad de San Miguel</p>
+            <p><strong>Dirección:</strong> Av. Triunfo, Juliaca, Puno, Perú</p>
           </div>
 
           <div class="detail-block">
-            <h3>Código de vestimenta</h3>
+            <h3>🎉 Recepción</h3>
+            <p><strong>Hora:</strong> 1:00 p.m.</p>
+            <p><strong>Lugar:</strong> Salón de Eventos "El Rey"</p>
+            <p><strong>Dirección:</strong> Jr. Daniel Alcides Carrión, Juliaca</p>
+          </div>
+
+          <div class="detail-block">
+            <h3>👗 Código de vestimenta</h3>
             <p>Elegante / Formal. Agradecemos evitar colores totalmente blancos.</p>
           </div>
         </section>
 
-        <!-- UBICACIÓN -->
-        <section id="location" class="section section-location">
-          <h2>Ubicación</h2>
+        <!-- LOCATION -->
+        <section class="section section-location fade-in">
+          <h2>📍 Ubicación</h2>
           <p>
-            El matrimonio se celebrará en la ciudad de <strong>Juliaca, Perú</strong>.  
-            Te compartimos una referencia para la recepción.  
-            Haz clic en el botón para abrir la ubicación en el mapa:
+            La celebración será en la ciudad de <strong>Juliaca, Puno, Perú</strong>.  
+            Te compartimos la referencia para la recepción:
           </p>
 
           <a
-            href="https://www.google.com/maps/search/Sal%C3%B3n+de+Eventos+Los+Andes+Juliaca+Peru"
+            href="https://www.google.com/maps/place/Local+De+Eventos+Palacio+Rey+como.llegar/"
             target="_blank"
             rel="noopener noreferrer"
             class="btn btn-outline"
           >
             Ver ubicación en Google Maps
           </a>
-
-          <!-- Puedes reemplazar más adelante con un iframe de Google Maps si quieres -->
-          <!--
-          <div class="map-placeholder">
-            Aquí puede ir el mapa de la ubicación.
-          </div>
-          -->
         </section>
 
-        <!-- RSVP / CONFIRMACIÓN -->
-        <section id="rsvp" class="section section-rsvp">
-          <h2>Confirmación de asistencia</h2>
+        <!-- RSVP -->
+        <section class="section section-rsvp fade-in">
+          <h2>📩 Confirmación de asistencia</h2>
           <p>
             Tu presencia hará de este día un momento inolvidable para nosotros.  
-            Te pedimos confirmar tu asistencia antes del <strong>1 de marzo de 2026</strong>.
+            Por favor confirma antes del <strong>1 de marzo de 2026</strong>.
           </p>
 
           <div class="rsvp-options">
+
             <div class="rsvp-item">
-              <p><strong>Teléfono / WhatsApp:</strong></p>
-              <p>David: +51 987 654 321</p>
-              <p>Deysi: +51 912 345 678</p>
+              <p><strong>WhatsApp:</strong></p>
+              <p>David: <a href="https://wa.me/51963325164">+51 963 325 164</a></p>
+              <p>Deysi: <a href="https://wa.me/51959345678">+51 959 345 678</a></p>
             </div>
 
             <div class="rsvp-item">
               <p><strong>Correo electrónico:</strong></p>
               <a
-                href="mailto:confirmacion@boda-david-deysi.com?subject=Confirmaci%C3%B3n%20de%20asistencia"
+                href="mailto:confirmacion@boda-david-deysi.com?subject=Confirmación de asistencia"
                 class="btn btn-primary"
               >
                 Confirmar por correo
               </a>
             </div>
+
           </div>
         </section>
+
       </main>
 
-      <footer class="card-footer">
-        <p>
-          “El amor verdadero no se encuentra, se construye día a día.”
-        </p>
+      <footer class="card-footer fade-in">
+        <p>“El amor verdadero no se encuentra, se construye día a día.”</p>
         <p class="initials">D &amp; D</p>
       </footer>
+
     </div>
+
   </div>
 
   <script src="js/countdown.js"></script>

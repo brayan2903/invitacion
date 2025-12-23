@@ -1,16 +1,23 @@
-/* Tipografías y variables */
+/* =======================================================
+      TIPOGRAFÍAS – COLORES – VARIABLES DE DISEÑO
+======================================================= */
 :root {
   --font-title: "Playfair Display", serif;
-  --font-body: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: "Montserrat", system-ui, sans-serif;
 
-  --color-bg: #f5f1eb;
+  /* Paleta romántica pastel celeste + dorado */
+  --color-bg: #e8f5ff;            /* Celeste pastel */
+  --color-bg-soft: #f4faff;       
   --color-card-bg: #ffffff;
-  --color-accent: #c59b7b;
-  --color-accent-soft: #f0dfcf;
-  --color-text-main: #333333;
-  --color-text-soft: #777777;
-  --color-border: #e2d5c7;
-  --shadow-soft: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --color-accent: #d4af37;        /* Dorado elegante */
+  --color-accent-light: #f4e8c3;
+  --color-text-main: #2f3b52;     /* Azul grisáceo suave */
+  --color-text-soft: #687792;
+  --color-border: #e1e9f0;
+
+  /* Sombras */
+  --shadow-soft: 0 12px 28px rgba(0, 0, 0, 0.09);
+  --shadow-gold: 0 0 14px rgba(212, 175, 55, 0.28);
 }
 
 *,
@@ -19,53 +26,78 @@
   box-sizing: border-box;
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
   font-family: var(--font-body);
   background: var(--color-bg);
   color: var(--color-text-main);
 }
 
-/* Fondo general de la página */
+/* =======================================================
+      FONDO GENERAL SUAVE CON EFECTO FLORAL
+======================================================= */
 .page-background {
   min-height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 16px;
-  background: radial-gradient(circle at top, #f9f4ee 0, #e9ded1 45%, #d6c7b6 100%);
+  padding: 26px;
+  background: radial-gradient(circle at top, #ffffff, #e8f5ff 55%);
+  position: relative;
 }
 
-/* Tarjeta principal */
+/* FLORES DECORATIVAS DELICADAS */
+.page-background::before,
+.page-background::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  opacity: 0.14;
+  background: url('../img/floral-gold.png') no-repeat center / contain;
+  pointer-events: none;
+}
+
+.page-background::before {
+  top: 0;
+  left: 0;
+}
+
+.page-background::after {
+  bottom: 0;
+  right: 0;
+}
+
+/* =======================================================
+      TARJETA PRINCIPAL
+======================================================= */
 .card {
   max-width: 960px;
   width: 100%;
   background: var(--color-card-bg);
-  border-radius: 24px;
-  box-shadow: var(--shadow-soft);
+  border-radius: 26px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  display: flex;
-  flex-direction: column;
+  border: 2px solid var(--color-accent-light);
+  box-shadow: var(--shadow-soft);
+  animation: fadeIn 1.2s ease both;
 }
 
-/* HEADER */
+/* =======================================================
+      HEADER
+======================================================= */
 .card-header {
   text-align: center;
-  padding: 24px 16px 18px;
+  padding: 36px 20px 28px;
   position: relative;
 }
 
 .header-image-wrapper {
-  width: 120px;
-  height: 120px;
-  margin: 0 auto 12px;
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 16px;
   border-radius: 50%;
   overflow: hidden;
-  border: 4px solid var(--color-card-bg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border: 4px solid #ffffff;
+  box-shadow: var(--shadow-gold);
 }
 
 .header-image {
@@ -75,289 +107,220 @@ body {
 }
 
 .small-text {
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--color-text-soft);
-  margin: 6px 0;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-top: 10px;
 }
 
 .names {
   font-family: var(--font-title);
-  font-size: 26px;
-  margin: 4px 0;
+  font-size: 46px;
   color: var(--color-accent);
+  margin: 6px 0 4px;
 }
 
 .wedding-date {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--color-text-soft);
 }
 
-/* Cuerpo de la tarjeta */
+/* =======================================================
+      CUERPO DE LA TARJETA
+======================================================= */
 .card-body {
-  padding: 20px 16px 24px;
+  padding: 32px 26px 40px;
 }
 
-/* Secciones */
-.section {
-  margin-bottom: 24px;
-}
-
-.section:last-of-type {
-  margin-bottom: 0;
-}
-
+/* Títulos */
 .section h2 {
   font-family: var(--font-title);
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 26px;
   color: var(--color-accent);
+  margin-bottom: 14px;
 }
 
+/* =======================================================
+      SECCIÓN INTRO
+======================================================= */
 .section-intro {
   text-align: center;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.7;
+  color: var(--color-text-main);
 }
 
-/* COUNTDOWN */
+/* =======================================================
+      COUNTDOWN
+======================================================= */
 .section-countdown {
   text-align: center;
-  background: linear-gradient(to bottom, #fffaf3, #fff);
-  padding: 18px 12px;
-  border-radius: 18px;
+  background: linear-gradient(to bottom, var(--color-bg-soft), #ffffff);
+  padding: 28px 22px;
+  border-radius: 20px;
   border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
 }
 
 .countdown-subtitle {
-  margin: 0 0 14px;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--color-text-soft);
+  margin-bottom: 18px;
 }
 
-/* GRID súper responsivo */
+/* GRID RESPONSIVO */
 .countdown-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(90px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(4, minmax(90px, 1fr));
+  gap: 16px;
   justify-items: center;
-  margin-bottom: 10px;
-}
-
-/* Desde pantallas medianas para arriba, 4 columnas */
-@media (min-width: 600px) {
-  .countdown-grid {
-    grid-template-columns: repeat(4, minmax(80px, 1fr));
-  }
 }
 
 .countdown-item {
-  padding: 10px 8px;
-  border-radius: 12px;
-  border: 1px solid var(--color-accent-soft);
+  padding: 14px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--color-accent-light);
   background: #ffffff;
-  min-width: 80px;
+  min-width: 90px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
 .count-value {
-  display: block;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: 600;
   color: var(--color-accent);
 }
 
 .count-label {
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-text-soft);
 }
 
 .countdown-message {
-  font-size: 12px;
+  margin-top: 8px;
+  font-size: 13px;
   color: var(--color-text-soft);
-  margin: 0;
 }
 
-/* DETALLES DEL EVENTO */
+/* =======================================================
+      DETALLES DEL EVENTO
+======================================================= */
 .section-details {
-  border-top: 1px solid #f0e4d8;
-  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+  padding-top: 28px;
 }
 
 .detail-block {
-  margin-bottom: 14px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  background: #faf6f1;
+  background: #f9fbff;
+  padding: 16px 20px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  border-left: 4px solid var(--color-accent);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
 
 .detail-block h3 {
+  font-family: var(--font-title);
   margin: 0 0 6px;
-  font-size: 15px;
+  font-size: 20px;
   color: var(--color-accent);
 }
 
 .detail-block p {
-  margin: 2px 0;
-  font-size: 13px;
+  margin: 4px 0;
+  font-size: 15px;
 }
 
-/* UBICACIÓN */
+/* =======================================================
+      UBICACIÓN
+======================================================= */
 .section-location p {
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-.map-placeholder {
+.btn-outline {
   margin-top: 12px;
-  padding: 26px 12px;
-  text-align: center;
-  border-radius: 16px;
-  background: repeating-linear-gradient(
-    45deg,
-    #f7efe6,
-    #f7efe6 10px,
-    #f3e6d8 10px,
-    #f3e6d8 20px
-  );
-  font-size: 12px;
-  color: var(--color-text-soft);
 }
 
-/* RSVP */
-.section-rsvp p {
-  font-size: 13px;
-}
-
+/* =======================================================
+      RSVP
+======================================================= */
 .rsvp-options {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-/* En pantallas anchas, los bloques uno al lado del otro */
-@media (min-width: 640px) {
-  .rsvp-options {
-    grid-template-columns: repeat(2, minmax(220px, 1fr));
-  }
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin-top: 20px;
 }
 
 .rsvp-item {
-  padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px dashed var(--color-accent-soft);
-  background: #fffdf9;
-  font-size: 13px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1px dashed var(--color-accent-light);
+  font-size: 15px;
+  box-shadow: var(--shadow-soft);
 }
 
-/* Botones */
+/* =======================================================
+      BOTONES
+======================================================= */
 .btn {
   display: inline-block;
-  padding: 10px 18px;
+  padding: 12px 22px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  text-align: center;
-  white-space: nowrap;
+  transition: 0.2s ease;
 }
 
 .btn-primary {
   background: var(--color-accent);
   color: #ffffff;
-  border-color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(197, 155, 123, 0.4);
+  box-shadow: 0 6px 14px rgba(212,175,55,0.35);
+}
+
+.btn-primary:hover {
+  background: #c19f2f;
 }
 
 .btn-outline {
   background: transparent;
   color: var(--color-accent);
-  border-color: var(--color-accent);
+  border: 2px solid var(--color-accent);
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+.btn-outline:hover {
+  background: var(--color-accent);
+  color: #fff;
 }
 
-.btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* FOOTER */
+/* =======================================================
+      FOOTER
+======================================================= */
 .card-footer {
   border-top: 1px solid var(--color-border);
-  padding: 12px 16px 16px;
+  padding: 18px 20px;
   text-align: center;
-  font-size: 11px;
+  background: #f5faff;
+  font-size: 13px;
   color: var(--color-text-soft);
-  background: #fdf8f2;
 }
 
-.card-footer .initials {
-  margin-top: 4px;
+.initials {
+  margin-top: 6px;
+  font-size: 22px;
   font-family: var(--font-title);
-  font-size: 18px;
   color: var(--color-accent);
 }
 
-/* Ajustes para pantallas muy pequeñas */
-@media (max-width: 360px) {
-  .names {
-    font-size: 22px;
-  }
-
-  .card-body {
-    padding: 16px 12px 20px;
-  }
-
-  .section h2 {
-    font-size: 18px;
-  }
-}
-
-/* Ajustes para pantallas medianas y grandes */
-@media (min-width: 768px) {
-  .card-header {
-    padding: 32px 32px 24px;
-  }
-
-  .header-image-wrapper {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 16px;
-  }
-
-  .names {
-    font-size: 36px;
-  }
-
-  .wedding-date {
-    font-size: 14px;
-  }
-
-  .card-body {
-    padding: 28px 40px 32px;
-  }
-
-  .section h2 {
-    font-size: 22px;
-  }
-
-  .section-intro {
-    font-size: 15px;
-  }
-
-  .detail-block p,
-  .section-location p,
-  .section-rsvp p {
-    font-size: 14px;
-  }
+/* =======================================================
+      ANIMACIONES
+======================================================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
