@@ -35,7 +35,7 @@ updateCountdown();
 setInterval(updateCountdown, 1000);
 
 /* =======================================================
-   🌸 PÉTALOS
+   🌸 PÉTALOS (CONTROLADOS)
 ======================================================= */
 function createPetal() {
   const container = document.querySelector(".page-background");
@@ -50,10 +50,10 @@ function createPetal() {
   setTimeout(() => petal.remove(), 12000);
 }
 
-setInterval(createPetal, 700);
+let petalInterval = null;
 
 /* =======================================================
-   🎶 MÚSICA DESDE YOUTUBE (ESTABLE)
+   🎶 MÚSICA YOUTUBE
 ======================================================= */
 let player = null;
 let playing = false;
@@ -74,7 +74,7 @@ function onYouTubeIframeAPIReady() {
       modestbranding: 1
     },
     events: {
-      onReady: function () {
+      onReady: () => {
         ytReady = true;
         player.setVolume(50);
       }
@@ -84,28 +84,29 @@ function onYouTubeIframeAPIReady() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const musicBtn = document.getElementById("music-toggle");
-  if (!musicBtn) return;
 
-  musicBtn.addEventListener("click", () => {
-    if (!ytReady || !player) {
-      alert("Cargando música… intenta nuevamente 🎵");
-      return;
-    }
+  if (musicBtn) {
+    musicBtn.addEventListener("click", () => {
+      if (!ytReady || !player) {
+        alert("Cargando música… intenta nuevamente 🎵");
+        return;
+      }
 
-    if (!playing) {
-      player.playVideo();
-      musicBtn.textContent = "⏸️";
-      playing = true;
-    } else {
-      player.pauseVideo();
-      musicBtn.textContent = "🎵";
-      playing = false;
-    }
-  });
+      if (!playing) {
+        player.playVideo();
+        musicBtn.textContent = "⏸️";
+        playing = true;
+      } else {
+        player.pauseVideo();
+        musicBtn.textContent = "🎵";
+        playing = false;
+      }
+    });
+  }
 });
 
 /* =======================================================
-   🎬 ENTRADA CINEMATOGRÁFICA
+   🎬 ENTRADA CINEMATOGRÁFICA TARJETA
 ======================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const card = document.querySelector(".card");
@@ -122,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 /* =======================================================
-   📜 SCROLL CINEMATOGRÁFICO (1, 2, 3, 4)
+   📜 SCROLL CINEMATOGRÁFICO
 ======================================================= */
 const sections = document.querySelectorAll(".section");
 
@@ -140,7 +141,7 @@ const observer = new IntersectionObserver(
 sections.forEach(section => observer.observe(section));
 
 /* =======================================================
-   ✨ TEXTO CINEMATOGRÁFICO (OPCIONAL)
+   ✨ TEXTO CINEMATOGRÁFICO
 ======================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   const cinematicText = document.querySelector(".cinematic-text");
@@ -161,36 +162,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(typeEffect, 1200);
 });
-/* =======================================================
-   INTRO SCROLL
-======================================================= */
-const intro = document.getElementById("intro-screen");
 
-window.addEventListener("scroll", () => {
-  if (!intro) return;
-
-  if (window.scrollY > 30) {
-    intro.classList.add("hide");
-  }
-});
 /* =======================================================
    GALERÍA INTERACTIVA
 ======================================================= */
 const gallery = document.querySelector(".gallery-track");
 
 if (gallery) {
-  gallery.addEventListener("mouseenter", () => {
-    gallery.style.animationPlayState = "paused";
-  });
+  ["mouseenter", "touchstart"].forEach(evt =>
+    gallery.addEventListener(evt, () => {
+      gallery.style.animationPlayState = "paused";
+    })
+  );
 
   gallery.addEventListener("mouseleave", () => {
     gallery.style.animationPlayState = "running";
   });
-
-  gallery.addEventListener("touchstart", () => {
-    gallery.style.animationPlayState = "paused";
-  });
 }
+
 /* =======================================================
    RSVP WHATSAPP
 ======================================================= */
@@ -198,7 +187,7 @@ const rsvpForm = document.getElementById("rsvp-form");
 const rsvpSuccess = document.getElementById("rsvp-success");
 
 if (rsvpForm) {
-  rsvpForm.addEventListener("submit", function (e) {
+  rsvpForm.addEventListener("submit", e => {
     e.preventDefault();
 
     const name = document.getElementById("guest-name").value.trim();
@@ -211,14 +200,46 @@ Soy *${name}*.
 Confirmo: *${attendance}*
 para la boda de David & Deysi 💙`;
 
-    const phone = "51963325164"; // tu WhatsApp
+    const phone = "51963325164";
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
     rsvpForm.style.display = "none";
     rsvpSuccess.style.display = "block";
 
-    setTimeout(() => {
-      window.open(url, "_blank");
-    }, 1200);
+    setTimeout(() => window.open(url, "_blank"), 1200);
   });
 }
+
+/* =======================================================
+   ✉️ APERTURA CINEMATOGRÁFICA DEL SOBRE
+======================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  const cover = document.getElementById("cover");
+  const envelope = document.querySelector(".cover-envelope");
+
+  if (!cover || !envelope) return;
+
+  document.body.classList.add("locked");
+
+  envelope.addEventListener("click", () => {
+    envelope.classList.add("opening");
+
+    // iniciar pétalos
+    if (!petalInterval) {
+      petalInterval = setInterval(createPetal, 700);
+    }
+
+    // iniciar música automáticamente
+    if (ytReady && player && !playing) {
+      player.playVideo();
+      playing = true;
+      const musicBtn = document.getElementById("music-toggle");
+      if (musicBtn) musicBtn.textContent = "⏸️";
+    }
+
+    setTimeout(() => {
+      cover.classList.add("hidden");
+      document.body.classList.remove("locked");
+    }, 900);
+  });
+});

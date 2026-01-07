@@ -483,3 +483,101 @@ body {
   font-weight: 600;
   animation: fadeUp 1s ease both;
 }
+/* =======================================================
+   ✉️ PORTADA INICIAL · SOBRE CELESTE
+======================================================= */
+#cover {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, var(--color-bg), #ffffff);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity 1s ease, visibility 1s ease;
+}
+
+#cover.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cover-content {
+  max-width: 360px;
+  padding: 26px;
+  font-family: var(--font-title);
+  color: var(--color-text-main);
+}
+
+.cover-small {
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-text-soft);
+}
+
+.cover-title {
+  font-size: 46px;
+  margin: 12px 0;
+  color: var(--color-accent);
+}
+
+.cover-text {
+  font-size: 15px;
+  margin-top: 8px;
+  color: var(--color-text-soft);
+}
+
+.cover-passes {
+  font-size: 30px;
+  margin: 18px 0;
+  color: var(--color-accent);
+}
+
+/* SOBRE */
+.cover-envelope {
+  width: 260px;
+  margin: 32px auto;
+  cursor: pointer;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: drop-shadow(0 18px 32px rgba(111,183,214,0.45));
+}
+
+.cover-envelope:hover {
+  transform: scale(1.08) translateY(-6px);
+}
+
+/* Texto inferior */
+.cover-action {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 10px;
+  color: var(--color-text-soft);
+}
+
+/* Bloquear scroll */
+body.locked {
+  overflow: hidden;
+}
+/* ===============================
+   ✉️ ANIMACIÓN DEL SOBRE
+================================ */
+
+.cover-envelope {
+  width: 260px;
+  cursor: pointer;
+  transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.cover-envelope.opening {
+  transform: scale(1.25) rotateX(20deg);
+  filter: brightness(1.05);
+}
+
+/* Fade elegante del cover */
+#cover.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05);
+}
